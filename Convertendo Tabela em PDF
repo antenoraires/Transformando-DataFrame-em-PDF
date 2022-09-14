@@ -1,0 +1,33 @@
+# comando para habilitar a converção em PDF
+!sudo apt-get install wkhtmltopdf
+!wget -c https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz -O wkhtmltox.tar.xz
+!tar xf wkhtmltox.tar.xz
+!sudo mv wkhtmltox/bin/* /usr/local/bin/
+!rm -Rf wkhtmltox*
+# Biblioteca para a converção de html  em PDF
+!pip install pdfkit
+import pdfkit
+# Biblioteca para formataçao de html
+!pip install pretty_html_table
+from pretty_html_table import build_table
+
+
+# Formatando HTML
+# Documentaçao "https://pypi.org/project/pretty-html-table/"
+def gerador(path):
+  html_table_blue_light = build_table(path, 'blue_dark')
+  #Salvando 
+  with open('ultrapassa_teto.html', 'w') as f:
+      f.write("""
+        <html>
+          <head>
+            <body>
+                  <h1>Formatação di seu HTML</h1>
+            </body>
+          </head>
+        </html>
+        """.format(html_table_blue_light))
+  #Converção pdfkit.from_file('Arquivo HTML ou Site', 'Arquivo.pdf') 
+  pdfkit.from_file('ultrapassa_teto.html','ultrapassa_teto.pdf')
+
+gerador(#Dataframe)
