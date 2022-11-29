@@ -22,7 +22,7 @@ def gerador(path):
         <html>
           <head>
             <body>
-                  <h1>Formatação di seu HTML</h1>
+                  <h1>Formatação de seu HTML</h1>
             </body>
           </head>
         </html>
